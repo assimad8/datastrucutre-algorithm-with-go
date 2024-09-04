@@ -6,4 +6,5 @@ import (
 
 func main() {
 	linear.MyList()
+	linear.MyTuple()
 }
