@@ -1,9 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"github.com/assimad8/golang-algo/pkg/datastructure/linear"
 )
 
 func main() {
-	fmt.Println("Data structure and Algorithm with Golang")
+	linear.MyList()
 }
