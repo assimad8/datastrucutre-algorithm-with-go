@@ -2,6 +2,7 @@ package main
 
 import (
 	"github.com/assimad8/golang-algo/pkg/datastructure/linear"
+	"github.com/assimad8/golang-algo/pkg/patterns"
 )
 
 func main() {
@@ -9,5 +10,5 @@ func main() {
 	linear.MyTuple()
 	linear.MyHeap()
 	
-
+	patterns.AdapterFun()
 }
