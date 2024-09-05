@@ -14,5 +14,5 @@ func main() {
 		// linear.MyHeap()
 	
 	// Patterns
-		patterns.FacadeFunc()
+		patterns.PrivateFunc()
 }
