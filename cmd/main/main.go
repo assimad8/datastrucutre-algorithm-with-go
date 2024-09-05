@@ -1,18 +1,9 @@
 package main
 
 import (
-	// "fmt"
-
-	_ "github.com/assimad8/golang-algo/pkg/datastructure/linear"
-	"github.com/assimad8/golang-algo/pkg/patterns"
+	"github.com/assimad8/golang-algo/pkg/algorithm/binarytree"
 )
 
 func main() {
-	// Datastructure
-		// linear.MyList()
-		// linear.MyTuple()
-		// linear.MyHeap()
-	
-	// Patterns
-		patterns.PrivateFunc()
+	binarytree.BinaryTreeFunc()
 }
