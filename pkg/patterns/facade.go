@@ -44,7 +44,7 @@ type Transaction struct{
 func (transaction *Transaction) create(amount float32,srcAccountId,destAccountId string)  *Transaction {
 	fmt.Println(":: Creating new transaction")
 	transaction.id = 1
-	transaction.amount = 13.2
+	transaction.amount = amount
 	transaction.srcAccountId = srcAccountId
 	transaction.destAccountId = destAccountId
 	return transaction
