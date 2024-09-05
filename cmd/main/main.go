@@ -14,6 +14,5 @@ func main() {
 		// linear.MyHeap()
 	
 	// Patterns
-		patterns.AdapterFun()
-		patterns.MediaPlayerFunc()
+		patterns.Composite()
 }

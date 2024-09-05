@@ -28,9 +28,10 @@ func AdapterFun() {
 	var processor IProcess = Adapter{adaptee:Adaptee{1}}
 	processor.process()
 }
-
-// MediaPlayer example
-
+		//////////////////////// 
+		// MediaPlayer example //
+		////////////////////////
+		
 // MediaPlayer is the target interface for playing audio
 type MediaPlayer interface {
 	PlayAudio(fileName string)
