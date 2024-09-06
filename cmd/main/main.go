@@ -1,9 +1,11 @@
 package main
 
 import (
-	"github.com/assimad8/golang-algo/pkg/algorithm/binarytree"
+	"fmt"
+	"github.com/assimad8/golang-algo/pkg/algorithm/divideandconquer"
 )
 
 func main() {
-	binarytree.BinaryTreeFunc()
+	fb := divideandconquer.Fibonacci(7)
+	fmt.Printf("%d",fb)
 }
