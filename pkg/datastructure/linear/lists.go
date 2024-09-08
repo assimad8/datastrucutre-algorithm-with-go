@@ -76,3 +76,80 @@ func (linkedList *LinkedList) AddAfter(nodeProperty,property int) {
 		nodeWith.NextNode = node
 	}
 }
+
+// Doubly Linked List
+
+// Node Class
+type DNode struct {
+	property int
+	nextNode *DNode
+	previousNode *DNode
+}
+type DLinkedList struct {
+	HeadNode *DNode
+}
+// NodeBetweenValues mothods of LinedList
+func (linkedList *DLinkedList) NodeBetweenValues(firstProperty,secondProperty int) *DNode {
+	for node := linkedList.HeadNode; node != nil; node = node.nextNode{
+		if node.previousNode!=nil && node.nextNode != nil{
+			if node.previousNode.property==firstProperty&&node.nextNode.property==secondProperty {
+				return node
+			}
+		}
+	}
+	return nil
+}
+// NodeWithValue method 
+func (linkedList *DLinkedList) NodeWithValue(value int) *DNode {
+	for node := linkedList.HeadNode;node!=nil;node=node.nextNode{
+		if node.property==value{
+			return node
+		}
+	}
+	return nil
+}
+// AddToHead method
+func (linkedList *DLinkedList) AddToHead(property int) {
+	node := &DNode{property,nil,nil}
+	if linkedList.HeadNode!=nil {
+		node.nextNode = linkedList.HeadNode
+		linkedList.HeadNode.previousNode=node
+	}
+	linkedList.HeadNode = node
+}
+// AddAfter method
+func (linkedList *DLinkedList) AddAfter(nodeProperty,property int) {
+	node := &DNode{property,nil,nil}
+	nodeWith := linkedList.NodeWithValue(nodeProperty)
+	if nodeWith != nil {
+		node.nextNode = nodeWith.nextNode
+		node.previousNode = nodeWith
+		nodeWith.nextNode = node
+	}
+
+}
+// LastNode method
+func (linkedList *DLinkedList) LastNode() *DNode {
+
+	for node := linkedList.HeadNode;node!=nil;node=node.nextNode {
+		return node
+	}
+	return nil
+}
+// AddToEnd method
+func (linkedList *DLinkedList) AddToEnd(property int) {
+	node := new(DNode)
+	node.property = property
+	lastNode := linkedList.LastNode()
+	if lastNode!=nil{
+		lastNode.nextNode = node
+		node.previousNode = lastNode
+	}
+} 
+// IterateList method
+func (linkedList *DLinkedList) IterateList(){
+	for node := linkedList.HeadNode;node !=nil;node=node.nextNode{
+		fmt.Print(node.property)
+	}
+	fmt.Print("\n")
+}
