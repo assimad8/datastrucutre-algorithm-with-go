@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/assimad8/golang-algo/pkg/algorithm/divideandconquer"
+	"github.com/assimad8/golang-algo/pkg/datastructure/linear"
 )
 
 func main() {
-	fb := divideandconquer.Fibonacci(7)
-	fmt.Printf("%d",fb)
+	linkedList := new(linear.LinkedList)
+	linkedList.AddToHead(1)
+	linkedList.AddToHead(3)
+	fmt.Println(linkedList.HeadNode.Property)
 }

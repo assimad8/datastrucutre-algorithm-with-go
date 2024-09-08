@@ -14,3 +14,23 @@ func MyList(){
 		fmt.Println(element.Value.(int))
 	}
 }
+
+// LinkedList
+
+// the Node class
+
+type Node struct {
+	Property int
+	NextNode *Node
+}
+// LinkedList class
+type LinkedList struct {
+	HeadNode *Node
+}
+// AddToHead method
+func (linkedList *LinkedList) AddToHead(property int){
+	node := new(Node)
+	node.Property = property
+	node.NextNode = linkedList.HeadNode
+	linkedList.HeadNode = node
+}
