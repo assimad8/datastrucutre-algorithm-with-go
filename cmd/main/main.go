@@ -9,15 +9,19 @@ import (
 )
 
 func main() {
-	queue := make(linear.Queue,0)
-	order1 := new(linear.Order)
-	priority1,quantity1,product1,customerName1 := 2,20,"Computer","Greg"
-	order1.New(priority1,quantity1,product1,customerName1)
-	order2 := new(linear.Order)
-	order2.New(1,10,"Monitor","emad lakhbizi")
-	queue.Add(order1)
-	queue.Add(order2)
-	for i:=0;i<len(queue);i++{
-		fmt.Println(queue[i])
-	}
+	stack := new(linear.Stack)
+	stack.New()
+	e1 := new(linear.Element)
+	e1.Set(3)
+	e2 := new(linear.Element)
+	e2.Set(5)
+	e3 := new(linear.Element)
+	e3.Set(7)
+	e4 := new(linear.Element)
+	e4.Set(9)
+	stack.Push(e1)
+	stack.Push(e2)
+	stack.Push(e3)
+	stack.Push(e4)
+	fmt.Println(stack.Pop(),stack.Pop(),stack.Pop(),stack.Pop())
 }

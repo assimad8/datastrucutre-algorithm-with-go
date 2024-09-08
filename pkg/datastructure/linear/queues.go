@@ -1,5 +1,6 @@
 package linear
 
+
 type Queue []*Order
 
 type Order struct {
