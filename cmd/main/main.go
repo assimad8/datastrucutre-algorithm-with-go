@@ -9,21 +9,15 @@ import (
 )
 
 func main() {
-	set := new(linear.Set)
-	set2 := new(linear.Set)
-	set.New()
-	set2.New()
-	set.AddElement(1)
-	set.AddElement(2)
-	set.AddElement(3)
-	set.AddElement(4)
-	set2.AddElement(2)
-	set2.AddElement(3)
-	set2.AddElement(5)
-	fmt.Println(set)
-	fmt.Println(set.ContainsElement(1))
-	fmt.Println(set.ContainsElement(4))
-	fmt.Println(set.Intersect(set2))
-	fmt.Println(set.Union(set2))
-
+	queue := make(linear.Queue,0)
+	order1 := new(linear.Order)
+	priority1,quantity1,product1,customerName1 := 2,20,"Computer","Greg"
+	order1.New(priority1,quantity1,product1,customerName1)
+	order2 := new(linear.Order)
+	order2.New(1,10,"Monitor","emad lakhbizi")
+	queue.Add(order1)
+	queue.Add(order2)
+	for i:=0;i<len(queue);i++{
+		fmt.Println(queue[i])
+	}
 }
