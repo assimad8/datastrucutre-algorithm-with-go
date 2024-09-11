@@ -8,13 +8,23 @@ import (
 )
 
 func main() {
-	tree := new(nonlinear.BinarySearchTree)
-	tree.InsertElement(8,8)
-	tree.InsertElement(3,3)
-	tree.InsertElement(10,10)
-	tree.InsertElement(1,1)
-	tree.InsertElement(6,6)
-	tree.String()
-	fmt.Println(tree.RemoveNode(3))
-	tree.String()
+	table := nonlinear.Table{}
+	table.Name = "Customer"
+	table.ColumnNames = []string{"Id","Name","SSN"}
+	rows := make([]nonlinear.Row,2)
+	rows[0] = nonlinear.Row{}
+	columns1 := make([]nonlinear.Column,3)
+	columns1[0] = nonlinear.Column{1,"123"}
+	columns1[0] = nonlinear.Column{1,"Emad lakhbizi"}
+	columns1[0] = nonlinear.Column{1,"234234"}
+	rows[0].Columns = columns1
+	rows[1] = nonlinear.Row{}
+	columns2 := make([]nonlinear.Column,3)
+	columns2[0] = nonlinear.Column{1,"456"}
+	columns2[0] = nonlinear.Column{1,"lakhbizi emad"}
+	columns2[0] = nonlinear.Column{1,"667677"}
+	rows[1].Columns = columns2
+	table.Rows = rows
+	fmt.Println(table)
+	table.PrintTibale()
 }
