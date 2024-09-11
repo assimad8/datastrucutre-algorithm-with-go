@@ -206,3 +206,101 @@ func stringify(treeNode *TreeNode, level int) {
 	stringify(treeNode.rightNode, level)
 	}
 }
+
+// AVL Tree
+
+// KeyValue type
+type KeyValue interface {
+	LessThan(KeyValue) bool
+	EqualTo(KeyValue) bool
+}
+// TreeNode class
+type VTreeNode struct {
+	KeyValue KeyValue
+	BalanceValue int
+	LinkedNodes [2]*VTreeNode
+}
+// singleRotation method
+func singleRotation(rootNode *VTreeNode,nodeValue int) *VTreeNode {
+	saveNode := rootNode.LinkedNodes[opposite(nodeValue)]
+	rootNode.LinkedNodes[opposite(nodeValue)] = saveNode.LinkedNodes[nodeValue]
+	saveNode.LinkedNodes[nodeValue] = rootNode
+	return saveNode
+}
+// opposite method
+func opposite(nodeValue int) int {
+	return 1 - nodeValue
+}
+// double rotation
+func doubleRotation(rootNode *VTreeNode,nodeValue int) *VTreeNode {
+	saveNode := rootNode.LinkedNodes[opposite(nodeValue)].LinkedNodes[nodeValue]
+	rootNode.LinkedNodes[opposite(nodeValue)].LinkedNodes[nodeValue] = saveNode.LinkedNodes[opposite(nodeValue)]
+	saveNode.LinkedNodes[opposite(nodeValue)] = rootNode.LinkedNodes[opposite(nodeValue)]
+	rootNode.LinkedNodes[opposite(nodeValue)] = saveNode
+	saveNode = rootNode.LinkedNodes[opposite(nodeValue)]
+
+	rootNode.LinkedNodes[opposite(nodeValue)] = saveNode.LinkedNodes[nodeValue]
+
+	saveNode.LinkedNodes[nodeValue] = rootNode
+	return saveNode
+}
+
+// adjustBalance metho
+func adjustBalance(rootNode *VTreeNode,nodeValue,balanceValue int) {
+	node := rootNode.LinkedNodes[nodeValue]
+	oppNode := node.LinkedNodes[opposite(nodeValue)]
+	switch oppNode.BalanceValue {
+	case 0 :
+		rootNode.BalanceValue = 0
+		node.BalanceValue = 0
+	case balanceValue:
+		rootNode.BalanceValue = -balanceValue
+		node.BalanceValue = 0
+	default:
+		rootNode.BalanceValue = 0
+		node.BalanceValue = balanceValue
+	}
+	oppNode.BalanceValue = 0
+}
+
+// BalanceTree method
+func BalanceTree(rootNode *VTreeNode,nodeValue int) *VTreeNode {
+	node := rootNode.LinkedNodes[nodeValue]
+	balance := 2 * nodeValue - 1
+	if node.BalanceValue == balance {
+		rootNode.BalanceValue = 0
+		node.BalanceValue = 0
+		return singleRotation(rootNode,opposite(nodeValue))
+	}
+	adjustBalance(rootNode,nodeValue,balance)
+	return doubleRotation(rootNode,opposite(nodeValue))
+}
+
+// insertRnode method
+func insertRNode(rootNode *VTreeNode,key KeyValue) (*VTreeNode,bool) {
+	if rootNode == nil {
+		return &VTreeNode{KeyValue: key},false
+	}
+	dir := 0
+	if rootNode.KeyValue.LessThan(key) {
+		dir = 1
+	}
+	var done bool
+	rootNode.LinkedNodes[dir],done = insertRNode(rootNode.LinkedNodes[dir],key)
+	if done {
+		return rootNode, true
+	}
+	rootNode.BalanceValue = rootNode.BalanceValue + (2*dir-1)
+	switch rootNode.BalanceValue {
+	case 0:
+		return rootNode,true
+	case 1,-1:
+		return rootNode,false
+	}
+	return BalanceTree(rootNode,dir),true
+}
+
+// InsertNode method
+func InsertNode(treeNode **VTreeNode,key KeyValue) {
+	*treeNode,_ = insertRNode(*treeNode,key)
+}
