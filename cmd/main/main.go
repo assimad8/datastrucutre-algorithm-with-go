@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/assimad8/golang-algo/pkg/datastructure"
+	"github.com/assimad8/golang-algo/pkg/algorithm"
 )
 
 func main() {
-	datastructure.LinkedLIstFun()
+	algorithm.HashFunc()	
 }
