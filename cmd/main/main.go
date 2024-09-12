@@ -1,9 +1,13 @@
 package main
 
 import (
-	"github.com/assimad8/golang-algo/pkg/algorithm"
+	"fmt"
+
+	"github.com/assimad8/golang-algo/pkg/datastructure/homogeneous"
 )
 
 func main() {
-	algorithm.HashFunc()	
+
+	x :=homogeneous.Identity(4)
+	fmt.Print(x)	
 }
