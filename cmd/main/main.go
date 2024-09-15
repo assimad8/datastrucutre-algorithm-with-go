@@ -1,13 +1,14 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 
 	"github.com/assimad8/golang-algo/pkg/datastructure/homogeneous"
 )
 
 func main() {
-
-	x :=homogeneous.Identity(4)
-	fmt.Print(x)	
+	matrix := [3][3]int{{1,0,0},{0,0,0},{0,0,0},}
+	homogeneous.PrintMatrix(matrix)
+	matrix = homogeneous.ChangeMatrix(matrix)
+	homogeneous.PrintMatrix(matrix)
 }
