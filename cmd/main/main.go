@@ -7,8 +7,5 @@ import (
 )
 
 func main() {
-	matrix := [3][3]int{{1,0,0},{0,0,0},{0,0,0},}
-	homogeneous.PrintMatrix(matrix)
-	matrix = homogeneous.ChangeMatrix(matrix)
-	homogeneous.PrintMatrix(matrix)
+	homogeneous.MultiArray()
 }
