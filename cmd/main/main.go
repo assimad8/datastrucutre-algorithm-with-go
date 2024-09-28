@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	linkedlist.DoublyFunc()
+	linkedlist.CircularFunc()
 }
