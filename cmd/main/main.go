@@ -1,11 +1,9 @@
 package main
 
 import (
-	// "fmt"
-
-	"github.com/assimad8/golang-algo/pkg/datastructure/homogeneous"
+	"github.com/assimad8/golang-algo/pkg/datastructure/heterogeneous/linkedList"
 )
 
 func main() {
-	homogeneous.TensorFunc()
+	linkedlist.SinglFunc()
 }
