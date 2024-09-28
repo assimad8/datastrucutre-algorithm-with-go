@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	linkedlist.SinglFunc()
+	linkedlist.DoublyFunc()
 }
